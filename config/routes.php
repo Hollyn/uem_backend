@@ -88,9 +88,24 @@ Router::scope('/', function (RouteBuilder $routes) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
-    $routes->setExtensions(['json']);
+//    $routes->setExtensions(['json']);
     $routes->fallbacks(DashedRoute::class);
 });
+
+
+
+Router::scope('/', function (RouteBuilder $routes) {
+
+
+
+    $routes->setExtensions(['json']);
+    $routes->connect('/api/login', ['controller' => 'Api', 'action' => 'login', 'prefix' => 'api']);
+
+    $routes->fallbacks(DashedRoute::class);
+});
+
+
+
 
 /**
  * If you need a different set of middleware or none at all,

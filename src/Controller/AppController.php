@@ -53,64 +53,52 @@ class AppController extends Controller
             'enableBeforeRedirect' => false,
         ]);
         $this->loadComponent('Flash');
-        if ((isset($ext) && $ext == 'json') && (!($this->request->is('ajax')) && ($url != 'users/loginapi.json')) ) {
-            $this->loadComponent('Auth', [
-                'authenticate' => [
-                    'Basic' => [
-                        'fields' => ['username' => 'email', 'password' => 'api_key'],
-                        'userModel' => 'Users',
-                        'scope' => ['status' => 'A']
-                    ],
-                ],
-                'storage' => 'Memory',
-                'unauthorizedRedirect' => false
-            ]);
-        } else {
-            $this->loadComponent('Auth', [
-                'authenticate' => [
-                    'Form' => [
-                        'fields' => [
-                            'username' => 'email',
-                            'password' => 'password'
-                        ]
-                    ]
-                ],
-                'authorize' => [
-                    'Acl.Actions' => ['actionPath' => 'controllers/']
-                ],
-                'loginAction' => [
-                    'plugin' => false,
-                    'controller' => 'Users',
-                    'action' => 'login'
-                ],
-                'loginRedirect' => [
-                    'plugin' => false,
-                    'controller' => 'Groups',
-                    'action' => 'index'
-                ],
-                'logoutRedirect' => [
-                    'plugin' => false,
-                    'controller' => 'Users',
-                    'action' => 'login'
-                ],
-                'unauthorizedRedirect' => [
-                    'controller' => 'Users',
-                    'action' => 'login',
-                    'prefix' => false
-                ],
-                'authError' => 'You are not authorized to access that location.',
-                'flash' => [
-                    'element' => 'error'
-                ]
-            ]);
-        }
 
-        /*
-         * Enable the following component for recommended CakePHP security settings.
-         * see https://book.cakephp.org/3.0/en/controllers/components/security.html
-         */
-        //$this->loadComponent('Security');
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form' => [
+                    'fields' => [
+                        'username' => 'email',
+                        'password' => 'password'
+                    ]
+                ]
+            ],
+            'authorize' => [
+                'Acl.Actions' => ['actionPath' => 'controllers/']
+            ],
+            'loginAction' => [
+                'plugin' => false,
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'loginRedirect' => [
+                'plugin' => false,
+                'controller' => 'Groups',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'plugin' => false,
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'unauthorizedRedirect' => [
+                'controller' => 'Users',
+                'action' => 'login',
+                'prefix' => false
+            ],
+            'authError' => 'You are not authorized to access that location.',
+            'flash' => [
+                'element' => 'error'
+            ]
+        ]);
     }
+
+    /*
+     * Enable the following component for recommended CakePHP security settings.
+     * see https://book.cakephp.org/3.0/en/controllers/components/security.html
+     */
+    //$this->loadComponent('Security');
+
 
 
     public function beforeRender(Event $event)

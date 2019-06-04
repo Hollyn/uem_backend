@@ -37,6 +37,7 @@ class Application extends BaseApplication
         // Call parent to load bootstrap from files.
         parent::bootstrap();
         $this->addPlugin('Acl', ['bootstrap' => true]);
+        $this->addPlugin('ADmad/JwtAuth');
 
         if (PHP_SAPI === 'cli') {
             try {
