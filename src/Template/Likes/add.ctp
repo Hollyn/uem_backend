@@ -19,9 +19,9 @@
     <fieldset>
         <legend><?= __('Add Like') ?></legend>
         <?php
-            echo $this->Form->control('isLike');
-            echo $this->Form->control('event_id', ['options' => $events, 'empty' => true]);
-            echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
+            echo $this->Form->control('isLiked');
+            echo $this->Form->control('event_id', ['options' => $events]);
+            echo $this->Form->control('user_id', ['options' => $users]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

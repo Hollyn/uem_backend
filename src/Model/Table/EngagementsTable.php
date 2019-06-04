@@ -42,10 +42,12 @@ class EngagementsTable extends Table
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Users', [
-            'foreignKey' => 'user_id'
+            'foreignKey' => 'user_id',
+            'joinType' => 'INNER'
         ]);
         $this->belongsTo('Events', [
-            'foreignKey' => 'event_id'
+            'foreignKey' => 'event_id',
+            'joinType' => 'INNER'
         ]);
     }
 
@@ -62,8 +64,9 @@ class EngagementsTable extends Table
             ->allowEmptyString('id', 'create');
 
         $validator
-            ->integer('engagement')
-            ->allowEmptyString('engagement');
+            ->boolean('engagement')
+            ->requirePresence('engagement', 'create')
+            ->allowEmptyString('engagement', false);
 
         return $validator;
     }

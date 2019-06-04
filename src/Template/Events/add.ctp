@@ -28,11 +28,12 @@
             echo $this->Form->control('title');
             echo $this->Form->control('description');
             echo $this->Form->control('location');
-            echo $this->Form->control('date', ['empty' => true]);
+            echo $this->Form->control('date');
             echo $this->Form->control('startTime');
             echo $this->Form->control('endTime');
-            echo $this->Form->control('photo_id', ['options' => $photos, 'empty' => true]);
-            echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
+            echo $this->Form->control('status');
+            echo $this->Form->control('photo_id', ['options' => $photos]);
+            echo $this->Form->control('user_id', ['options' => $users]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

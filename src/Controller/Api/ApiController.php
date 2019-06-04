@@ -16,7 +16,7 @@ class ApiController extends AppController
         parent::initialize();
         $this->loadModel('Users');
 
-        $this->Auth->allow(['login', 'add']);
+        $this->Auth->allow(['login', 'add', 'index']);
 
     }
 
@@ -65,7 +65,7 @@ class ApiController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Groups'],'order' => ['id' => 'desc']
+            'contain' => ['Groups', 'Departments'],'order' => ['id' => 'desc']
         ];
         $users = $this->paginate($this->Users);
 

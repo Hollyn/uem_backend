@@ -60,12 +60,14 @@ class PhotosTable extends Table
         $validator
             ->scalar('photo')
             ->maxLength('photo', 255)
-            ->allowEmptyString('photo');
+            ->requirePresence('photo', 'create')
+            ->allowEmptyString('photo', false);
 
         $validator
             ->scalar('description')
             ->maxLength('description', 255)
-            ->allowEmptyString('description');
+            ->requirePresence('description', 'create')
+            ->allowEmptyString('description', false);
 
         return $validator;
     }

@@ -7,16 +7,17 @@ use Cake\ORM\Entity;
  * Event Entity
  *
  * @property int $id
- * @property string|null $title
- * @property string|null $description
- * @property string|null $location
- * @property \Cake\I18n\FrozenDate|null $date
- * @property \Cake\I18n\FrozenTime|null $startTime
- * @property \Cake\I18n\FrozenTime|null $endTime
- * @property int|null $photo_id
- * @property int|null $user_id
- * @property \Cake\I18n\FrozenTime|null $created
- * @property \Cake\I18n\FrozenTime|null $modified
+ * @property string $title
+ * @property string $description
+ * @property string $location
+ * @property \Cake\I18n\FrozenDate $date
+ * @property \Cake\I18n\FrozenTime $startTime
+ * @property \Cake\I18n\FrozenTime $endTime
+ * @property bool $status
+ * @property int $photo_id
+ * @property int $user_id
+ * @property \Cake\I18n\FrozenTime $created
+ * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Photo $photo
  * @property \App\Model\Entity\User $user
@@ -42,6 +43,7 @@ class Event extends Entity
         'date' => true,
         'startTime' => true,
         'endTime' => true,
+        'status' => true,
         'photo_id' => true,
         'user_id' => true,
         'created' => true,

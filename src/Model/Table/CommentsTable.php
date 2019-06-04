@@ -42,10 +42,12 @@ class CommentsTable extends Table
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Events', [
-            'foreignKey' => 'event_id'
+            'foreignKey' => 'event_id',
+            'joinType' => 'INNER'
         ]);
         $this->belongsTo('Users', [
-            'foreignKey' => 'user_id'
+            'foreignKey' => 'user_id',
+            'joinType' => 'INNER'
         ]);
     }
 
@@ -63,7 +65,8 @@ class CommentsTable extends Table
 
         $validator
             ->scalar('comment')
-            ->allowEmptyString('comment');
+            ->requirePresence('comment', 'create')
+            ->allowEmptyString('comment', false);
 
         return $validator;
     }

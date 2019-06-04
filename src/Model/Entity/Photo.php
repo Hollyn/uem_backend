@@ -7,10 +7,10 @@ use Cake\ORM\Entity;
  * Photo Entity
  *
  * @property int $id
- * @property string|null $photo
- * @property string|null $description
- * @property \Cake\I18n\FrozenTime|null $created
- * @property \Cake\I18n\FrozenTime|null $modified
+ * @property string $photo
+ * @property string $description
+ * @property \Cake\I18n\FrozenTime $created
+ * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Event[] $events
  */

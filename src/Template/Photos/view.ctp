@@ -51,6 +51,7 @@
                 <th scope="col"><?= __('Date') ?></th>
                 <th scope="col"><?= __('StartTime') ?></th>
                 <th scope="col"><?= __('EndTime') ?></th>
+                <th scope="col"><?= __('Status') ?></th>
                 <th scope="col"><?= __('Photo Id') ?></th>
                 <th scope="col"><?= __('User Id') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
@@ -66,6 +67,7 @@
                 <td><?= h($events->date) ?></td>
                 <td><?= h($events->startTime) ?></td>
                 <td><?= h($events->endTime) ?></td>
+                <td><?= h($events->status) ?></td>
                 <td><?= h($events->photo_id) ?></td>
                 <td><?= h($events->user_id) ?></td>
                 <td><?= h($events->created) ?></td>

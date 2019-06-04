@@ -36,7 +36,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Photo') ?></th>
-            <td><?= $event->has('photo') ? $this->Html->link($event->photo->, ['controller' => 'Photos', 'action' => 'view', $event->photo->]) : '' ?></td>
+            <td><?= $event->has('photo') ? $this->Html->link($event->photo->id, ['controller' => 'Photos', 'action' => 'view', $event->photo->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('User') ?></th>
@@ -65,6 +65,10 @@
         <tr>
             <th scope="row"><?= __('Modified') ?></th>
             <td><?= h($event->modified) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Status') ?></th>
+            <td><?= $event->status ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
     <div class="row">
@@ -124,9 +128,9 @@
                 <td><?= h($engagements->created) ?></td>
                 <td><?= h($engagements->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Engagements', 'action' => 'view', $engagements->]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Engagements', 'action' => 'edit', $engagements->]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Engagements', 'action' => 'delete', $engagements->], ['confirm' => __('Are you sure you want to delete # {0}?', $engagements->)]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Engagements', 'action' => 'view', $engagements->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Engagements', 'action' => 'edit', $engagements->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Engagements', 'action' => 'delete', $engagements->id], ['confirm' => __('Are you sure you want to delete # {0}?', $engagements->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -139,7 +143,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('IsLike') ?></th>
+                <th scope="col"><?= __('IsLiked') ?></th>
                 <th scope="col"><?= __('Event Id') ?></th>
                 <th scope="col"><?= __('User Id') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
@@ -149,7 +153,7 @@
             <?php foreach ($event->likes as $likes): ?>
             <tr>
                 <td><?= h($likes->id) ?></td>
-                <td><?= h($likes->isLike) ?></td>
+                <td><?= h($likes->isLiked) ?></td>
                 <td><?= h($likes->event_id) ?></td>
                 <td><?= h($likes->user_id) ?></td>
                 <td><?= h($likes->created) ?></td>

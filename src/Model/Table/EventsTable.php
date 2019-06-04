@@ -45,10 +45,12 @@ class EventsTable extends Table
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Photos', [
-            'foreignKey' => 'photo_id'
+            'foreignKey' => 'photo_id',
+            'joinType' => 'INNER'
         ]);
         $this->belongsTo('Users', [
-            'foreignKey' => 'user_id'
+            'foreignKey' => 'user_id',
+            'joinType' => 'INNER'
         ]);
         $this->hasMany('Comments', [
             'foreignKey' => 'event_id'
@@ -76,28 +78,39 @@ class EventsTable extends Table
         $validator
             ->scalar('title')
             ->maxLength('title', 255)
-            ->allowEmptyString('title');
+            ->requirePresence('title', 'create')
+            ->allowEmptyString('title', false);
 
         $validator
             ->scalar('description')
-            ->allowEmptyString('description');
+            ->requirePresence('description', 'create')
+            ->allowEmptyString('description', false);
 
         $validator
             ->scalar('location')
             ->maxLength('location', 255)
-            ->allowEmptyString('location');
+            ->requirePresence('location', 'create')
+            ->allowEmptyString('location', false);
 
         $validator
             ->date('date')
-            ->allowEmptyDate('date');
+            ->requirePresence('date', 'create')
+            ->allowEmptyDate('date', false);
 
         $validator
             ->dateTime('startTime')
-            ->allowEmptyDateTime('startTime');
+            ->requirePresence('startTime', 'create')
+            ->allowEmptyDateTime('startTime', false);
 
         $validator
             ->dateTime('endTime')
-            ->allowEmptyDateTime('endTime');
+            ->requirePresence('endTime', 'create')
+            ->allowEmptyDateTime('endTime', false);
+
+        $validator
+            ->boolean('status')
+            ->requirePresence('status', 'create')
+            ->allowEmptyString('status', false);
 
         return $validator;
     }

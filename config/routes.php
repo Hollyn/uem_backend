@@ -99,7 +99,21 @@ Router::scope('/', function (RouteBuilder $routes) {
 
 
     $routes->setExtensions(['json']);
-    $routes->connect('/api/login', ['controller' => 'Api', 'action' => 'login', 'prefix' => 'api']);
+    $routes->connect('/api/login',
+        [
+            'controller' => 'Api',
+            'action' => 'login',
+            'prefix' => 'api'
+        ]
+    );
+
+    $routes->connect('/api/index',
+        [
+            'controller' => 'Api',
+            'action' => 'index',
+            'prefix' => 'api'
+        ]
+    );
 
     $routes->fallbacks(DashedRoute::class);
 });

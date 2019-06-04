@@ -31,6 +31,7 @@
                 <th scope="col"><?= $this->Paginator->sort('date') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('startTime') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('endTime') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('status') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('photo_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
@@ -47,7 +48,8 @@
                 <td><?= h($event->date) ?></td>
                 <td><?= h($event->startTime) ?></td>
                 <td><?= h($event->endTime) ?></td>
-                <td><?= $event->has('photo') ? $this->Html->link($event->photo->, ['controller' => 'Photos', 'action' => 'view', $event->photo->]) : '' ?></td>
+                <td><?= h($event->status) ?></td>
+                <td><?= $event->has('photo') ? $this->Html->link($event->photo->id, ['controller' => 'Photos', 'action' => 'view', $event->photo->id]) : '' ?></td>
                 <td><?= $event->has('user') ? $this->Html->link($event->user->id, ['controller' => 'Users', 'action' => 'view', $event->user->id]) : '' ?></td>
                 <td><?= h($event->created) ?></td>
                 <td><?= h($event->modified) ?></td>

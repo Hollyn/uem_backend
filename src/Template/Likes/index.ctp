@@ -20,7 +20,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('isLike') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('isLiked') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('event_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
@@ -32,7 +32,7 @@
             <?php foreach ($likes as $like): ?>
             <tr>
                 <td><?= $this->Number->format($like->id) ?></td>
-                <td><?= h($like->isLike) ?></td>
+                <td><?= h($like->isLiked) ?></td>
                 <td><?= $like->has('event') ? $this->Html->link($like->event->title, ['controller' => 'Events', 'action' => 'view', $like->event->id]) : '' ?></td>
                 <td><?= $like->has('user') ? $this->Html->link($like->user->id, ['controller' => 'Users', 'action' => 'view', $like->user->id]) : '' ?></td>
                 <td><?= h($like->created) ?></td>

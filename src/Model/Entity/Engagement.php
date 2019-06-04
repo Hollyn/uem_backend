@@ -7,11 +7,11 @@ use Cake\ORM\Entity;
  * Engagement Entity
  *
  * @property int $id
- * @property int|null $engagement
- * @property int|null $user_id
- * @property int|null $event_id
- * @property \Cake\I18n\FrozenTime|null $created
- * @property \Cake\I18n\FrozenTime|null $modified
+ * @property bool $engagement
+ * @property int $user_id
+ * @property int $event_id
+ * @property \Cake\I18n\FrozenTime $created
+ * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Event $event

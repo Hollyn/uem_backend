@@ -41,8 +41,8 @@
             <td><?= h($like->modified) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('IsLike') ?></th>
-            <td><?= $like->isLike ? __('Yes') : __('No'); ?></td>
+            <th scope="row"><?= __('IsLiked') ?></th>
+            <td><?= $like->isLiked ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
 </div>

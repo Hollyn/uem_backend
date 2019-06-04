@@ -7,11 +7,11 @@ use Cake\ORM\Entity;
  * Comment Entity
  *
  * @property int $id
- * @property string|null $comment
- * @property int|null $event_id
- * @property int|null $user_id
- * @property \Cake\I18n\FrozenTime|null $created
- * @property \Cake\I18n\FrozenTime|null $modified
+ * @property string $comment
+ * @property int $event_id
+ * @property int $user_id
+ * @property \Cake\I18n\FrozenTime $created
+ * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Event $event
  * @property \App\Model\Entity\User $user

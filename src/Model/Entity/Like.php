@@ -7,11 +7,11 @@ use Cake\ORM\Entity;
  * Like Entity
  *
  * @property int $id
- * @property bool|null $isLike
- * @property int|null $event_id
- * @property int|null $user_id
- * @property \Cake\I18n\FrozenTime|null $created
- * @property \Cake\I18n\FrozenTime|null $modified
+ * @property bool $isLiked
+ * @property int $event_id
+ * @property int $user_id
+ * @property \Cake\I18n\FrozenTime $created
+ * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Event $event
  * @property \App\Model\Entity\User $user
@@ -28,7 +28,7 @@ class Like extends Entity
      * @var array
      */
     protected $_accessible = [
-        'isLike' => true,
+        'isLiked' => true,
         'event_id' => true,
         'user_id' => true,
         'created' => true,

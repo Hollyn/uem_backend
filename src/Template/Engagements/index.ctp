@@ -32,7 +32,7 @@
             <?php foreach ($engagements as $engagement): ?>
             <tr>
                 <td><?= $this->Number->format($engagement->id) ?></td>
-                <td><?= $this->Number->format($engagement->engagement) ?></td>
+                <td><?= h($engagement->engagement) ?></td>
                 <td><?= $engagement->has('user') ? $this->Html->link($engagement->user->id, ['controller' => 'Users', 'action' => 'view', $engagement->user->id]) : '' ?></td>
                 <td><?= $engagement->has('event') ? $this->Html->link($engagement->event->title, ['controller' => 'Events', 'action' => 'view', $engagement->event->id]) : '' ?></td>
                 <td><?= h($engagement->created) ?></td>

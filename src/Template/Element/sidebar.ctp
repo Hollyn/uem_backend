@@ -8,7 +8,35 @@
                     <?= $this->Html->link(
                             '<i class="lnr lnr-home"></i> Tableau de bord',
                             "#",
-                            ['class' => 'active', 'escape' => false,]
+                            ['class' => ($this->request->params['controller'] == 'Home') ? 'active' : '', 'escape' => false,]
+                    )?>
+                </li>
+                <li>
+                    <?= $this->Html->link(
+                        '<i class="fa fa-calendar"></i> Événements',
+                        ['controller' => 'Groups', 'action' => 'index'],
+                        ['class' => ($this->request->params['controller'] == 'Events') ? 'active' : '', 'escape' => false,]
+                    )?>
+                </li>
+                <li>
+                    <?= $this->Html->link(
+                            '<i class="lnr lnr-users"></i> Utilisateurs',
+                            ['controller' => 'Users', 'action' => 'index'],
+                            ['class' => ($this->request->params['controller'] == 'Users') ? 'active' : '', 'escape' => false,]
+                    )?>
+                </li>
+                <li>
+                    <?= $this->Html->link(
+                            '<i class="fa fa-group"></i> Groupes',
+                        ['controller' => 'Groups', 'action' => 'index'],
+                            ['class' => ($this->request->params['controller'] == 'Groups') ? 'active' : '', 'escape' => false,]
+                    )?>
+                </li>
+                <li>
+                    <?= $this->Html->link(
+                            '<i class="fa fa-building"></i> Départements',
+                        ['controller' => 'Departments', 'action' => 'index'],
+                            ['class' => ($this->request->params['controller'] == 'Departments') ? 'active' : '', 'escape' => false,]
                     )?>
                 </li>
                 <!-- <li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>

@@ -33,16 +33,16 @@
             <td><?= $this->Number->format($engagement->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Engagement') ?></th>
-            <td><?= $this->Number->format($engagement->engagement) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Created') ?></th>
             <td><?= h($engagement->created) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Modified') ?></th>
             <td><?= h($engagement->modified) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Engagement') ?></th>
+            <td><?= $engagement->engagement ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
 </div>
