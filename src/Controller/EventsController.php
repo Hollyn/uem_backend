@@ -20,7 +20,7 @@ class EventsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Photos', 'Users']
+            'contain' => ['Photos', 'Users' => 'Departments']
         ];
         $events = $this->paginate($this->Events);
 
@@ -52,6 +52,8 @@ class EventsController extends AppController
     {
         $event = $this->Events->newEntity();
         if ($this->request->is('post')) {
+            if ($event->photo_id == null || empty($event->photo_id) || $event->photo_id == "")
+                $event->photo_id = 1;
             $event = $this->Events->patchEntity($event, $this->request->getData());
             if ($this->Events->save($event)) {
                 $this->Flash->success(__('The event has been saved.'));

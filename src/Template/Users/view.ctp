@@ -130,9 +130,9 @@
                 <td><?= h($engagements->created) ?></td>
                 <td><?= h($engagements->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Engagements', 'action' => 'view', $engagements->]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Engagements', 'action' => 'edit', $engagements->]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Engagements', 'action' => 'delete', $engagements->], ['confirm' => __('Are you sure you want to delete # {0}?', $engagements->)]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Engagements', 'action' => 'view', $engagements->engagement]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Engagements', 'action' => 'edit', $engagements->engagement]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Engagements', 'action' => 'delete', $engagements->engagement], ['confirm' => __('Are you sure you want to delete # {0}?', $engagements->engagement)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
