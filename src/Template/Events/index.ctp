@@ -1,25 +1,4 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Event[]|\Cake\Collection\CollectionInterface $events
- */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Event'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Photos'), ['controller' => 'Photos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Photo'), ['controller' => 'Photos', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Comments'), ['controller' => 'Comments', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Comment'), ['controller' => 'Comments', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Engagements'), ['controller' => 'Engagements', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Engagement'), ['controller' => 'Engagements', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Likes'), ['controller' => 'Likes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Like'), ['controller' => 'Likes', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+
 
 
 <div class="col-md-12">

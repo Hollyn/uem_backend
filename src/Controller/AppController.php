@@ -73,7 +73,7 @@ class AppController extends Controller
             ],
             'loginRedirect' => [
                 'plugin' => false,
-                'controller' => 'Groups',
+                'controller' => 'Home',
                 'action' => 'index'
             ],
             'logoutRedirect' => [

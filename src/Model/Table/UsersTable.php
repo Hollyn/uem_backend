@@ -47,10 +47,12 @@ class UsersTable extends Table
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Groups', [
-            'foreignKey' => 'group_id'
+            'foreignKey' => 'group_id',
+            'joinType' => 'INNER'
         ]);
         $this->belongsTo('Departments', [
-            'foreignKey' => 'department_id'
+            'foreignKey' => 'department_id',
+            'joinType' => 'INNER'
         ]);
         $this->hasMany('Comments', [
             'foreignKey' => 'user_id'
@@ -81,36 +83,48 @@ class UsersTable extends Table
         $validator
             ->scalar('firstname')
             ->maxLength('firstname', 255)
-            ->allowEmptyString('firstname');
+            ->requirePresence('firstname', 'create')
+            ->allowEmptyString('firstname', false);
 
         $validator
             ->scalar('lastname')
             ->maxLength('lastname', 255)
-            ->allowEmptyString('lastname');
+            ->requirePresence('lastname', 'create')
+            ->allowEmptyString('lastname', false);
 
         $validator
             ->email('email')
-            ->allowEmptyString('email');
+            ->requirePresence('email', 'create')
+            ->allowEmptyString('email', false);
 
         $validator
             ->scalar('password')
             ->maxLength('password', 255)
-            ->allowEmptyString('password');
+            ->requirePresence('password', 'create')
+            ->allowEmptyString('password', false);
 
         $validator
             ->scalar('address')
             ->maxLength('address', 255)
-            ->allowEmptyString('address');
+            ->requirePresence('address', 'create')
+            ->allowEmptyString('address', false);
 
         $validator
             ->scalar('phone')
             ->maxLength('phone', 255)
-            ->allowEmptyString('phone');
+            ->requirePresence('phone', 'create')
+            ->allowEmptyString('phone', false);
 
         $validator
             ->scalar('avatar')
             ->maxLength('avatar', 255)
-            ->allowEmptyString('avatar');
+            ->requirePresence('avatar', 'create')
+            ->allowEmptyString('avatar', false);
+
+        $validator
+            ->boolean('sex')
+            ->requirePresence('sex', 'create')
+            ->allowEmptyString('sex', false);
 
         return $validator;
     }

@@ -56,6 +56,7 @@ class User extends Entity
         'engagements' => true,
         'events' => true,
         'likes' => true,
+        'sex' => true,
         'id' => false
     ];
 
