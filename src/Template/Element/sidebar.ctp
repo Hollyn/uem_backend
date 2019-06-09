@@ -55,7 +55,7 @@
                 </li>
                 <li>
                     <?= $this->Html->link(
-                        '<i class="lnr lnr-users"></i> Groupes <i class="icon-submenu lnr lnr-chevron-left"></i>',
+                        '<i class="fa fa-group"></i> Groupes <i class="icon-submenu lnr lnr-chevron-left"></i>',
                         "#subGroup",
                         [
                             'class' => ($this->request->params['controller'] == 'Groups') ? 'active' : '',
@@ -88,7 +88,7 @@
                 </li>
                 <li>
                     <?= $this->Html->link(
-                        '<i class="lnr lnr-users"></i> Départements <i class="icon-submenu lnr lnr-chevron-left"></i>',
+                        '<i class="fa fa-building"></i> Départements <i class="icon-submenu lnr lnr-chevron-left"></i>',
                         "#subDept",
                         [
                             'class' => ($this->request->params['controller'] == 'Departments') ? 'active' : '',

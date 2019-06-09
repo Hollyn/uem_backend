@@ -78,14 +78,14 @@ class UsersController extends AppController
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             // start saving photo
-            if (!empty($this->request->getData()[‘photo’][‘name’])){
+           /* if (!empty($this->request->getData()[‘photo’][‘name’])){
                 $filename =$this->request->getData[‘photo’][‘name’];
                 $uploadPath = ‘img/‘;
                 $uploadFile = $uploadPath . $filename;
                 if(move_uploaded_file($this->request->getData[‘photo’][‘tmp_name’], $uploadFile)){
                     $this->request->getData[‘photo’] = $filename;
                 }
-            }
+            }*/
             // end saving photo
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {

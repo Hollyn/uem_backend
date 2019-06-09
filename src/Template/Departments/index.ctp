@@ -1,28 +1,16 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Department[]|\Cake\Collection\CollectionInterface $departments
- */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Department'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="departments index large-9 medium-8 columns content">
-    <h3><?= __('Departments') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+
+<div class="panel">
+    <div class="panel-heading">
+        <h1 class="panel-title"><b>Lise des départements</b></h1>
+    </div>
+    <div class="panel-body">
+    <table cellpadding="0" cellspacing="0" class="table table-hover">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('abbreviation') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('description') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name', "Nom") ?></th>
+                <th scope="col"><?= $this->Paginator->sort('abbreviation', "Abréviation") ?></th>
+                <th scope="col"><?= $this->Paginator->sort('description', "Description") ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -33,12 +21,10 @@
                 <td><?= h($department->name) ?></td>
                 <td><?= h($department->abbreviation) ?></td>
                 <td><?= h($department->description) ?></td>
-                <td><?= h($department->created) ?></td>
-                <td><?= h($department->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $department->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $department->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $department->id], ['confirm' => __('Are you sure you want to delete # {0}?', $department->id)]) ?>
+                    <?= $this->Html->link(__('Voir'), ['action' => 'view', $department->id]) ?> |
+                    <?= $this->Html->link(__('Modifier'), ['action' => 'edit', $department->id]) ?> |
+                    <?= $this->Form->postLink(__('Effacer'), ['action' => 'delete', $department->id], ['confirm' => __('Are you sure you want to delete # {0}?', $department->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -46,12 +32,13 @@
     </table>
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->first('<< ' . __('Premier')) ?>
+            <?= $this->Paginator->prev('< ' . __('Précédent')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->next(__('Suivant') . ' >') ?>
+            <?= $this->Paginator->last(__('Dernier') . ' >>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} sur {{pages}}, montrant {{current}} rentrée(s) sur {{count}} total')]) ?></p>
     </div>
+</div>
 </div>
