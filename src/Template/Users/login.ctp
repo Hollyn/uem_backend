@@ -5,9 +5,8 @@
                 <div class="left">
                     <div class="content">
                         <div class="header">
-                            <div class="logo text-center">
-                                <?= $this->Html->image('logo-dark.png', ['alt' => 'Klorofil Logo', 'class' => '']) ?>
-                            </div>
+<!--                            <div class="logo text-center">-->
+<!--                            </div>-->
                             <p class="lead">Connectez-vous à votre compte</p>
                         </div>
                             <?= $this->Form->create('User', ['class' => 'form-auth-small']) ?>
@@ -27,7 +26,7 @@
                             </div>
                             <?= $this->Form->button(__('S\'IDENTIFIER'), ['class' => 'btn btn-primary btn-lg btn-block']); ?>
                             <div class="bottom">
-                                <span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Mot de passe oublié?</a></span>
+                                <!--span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Mot de passe oublié?</a></span-->
                             </div>
 
                         <?= $this->Form->end() ?>

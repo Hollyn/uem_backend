@@ -14,12 +14,11 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $startTime
  * @property \Cake\I18n\FrozenTime $endTime
  * @property bool $status
- * @property int $photo_id
+ * @property string|null $photo_path
  * @property int $user_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Photo $photo
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Comment[] $comments
  * @property \App\Model\Entity\Engagement[] $engagements
@@ -44,11 +43,10 @@ class Event extends Entity
         'startTime' => true,
         'endTime' => true,
         'status' => true,
-        'photo_id' => true,
+        'photo_path' => true,
         'user_id' => true,
         'created' => true,
         'modified' => true,
-        'photo' => true,
         'user' => true,
         'comments' => true,
         'engagements' => true,

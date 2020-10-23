@@ -50,6 +50,9 @@ class CommentsController extends AppController
      */
     public function add()
     {
+        if ($this->request->is('ajax')){
+            echo "OK ajax from controller";
+        }
         $comment = $this->Comments->newEntity();
         if ($this->request->is('post')) {
             $comment = $this->Comments->patchEntity($comment, $this->request->getData());

@@ -69,7 +69,7 @@ class AppController extends Controller
             'loginAction' => [
                 'plugin' => false,
                 'controller' => 'Users',
-                'action' => 'login'
+                'action' => 'add'
             ],
             'loginRedirect' => [
                 'plugin' => false,
@@ -103,6 +103,7 @@ class AppController extends Controller
 
     public function beforeRender(Event $event)
     {
+        $this->Auth->allow(['add']);
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->getType(), ['application/json', 'application/xml'])
         ) {

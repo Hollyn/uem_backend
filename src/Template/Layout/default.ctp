@@ -47,7 +47,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
 </head>
 <body>
 <!-- WRAPPER -->
@@ -79,10 +78,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <?= $this->Html->script('/vendor/jquery/jquery.min.js') ?>
 <?= $this->Html->script('/vendor/bootstrap/js/bootstrap.min.js') ?>
 <?= $this->Html->script('/vendor/jquery-slimscroll/jquery.slimscroll.min.js') ?>
-<?= $this->Html->script('/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js') ?>
 <?= $this->Html->script('/vendor/chartist/js/chartist.min.js') ?>
 <?= $this->Html->script('klorofil-common.js') ?>
-<?= $this->Html->script('klorofil-main.js') ?>
+
+<?= $this->fetch('scriptBottom') ?>
+<?= $this->fetch('script') ?>
 
 </body>
 <!--<body>

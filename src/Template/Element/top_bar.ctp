@@ -2,9 +2,9 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
-        <a href="index.html">
-            <?= $this->Html->image('logo-dark.png', ['alt' => 'Klorofil Logo', 'class' => 'img-responsive logo']) ?>
-        </a>
+        <span >
+            <!--?= $this->Html->image('logo-dark.png', ['alt' => 'Klorofil Logo', 'class' => 'img-responsive logo']) ? -->
+        </span>
     </div>
     <div class="container-fluid">
         <div class="navbar-btn">

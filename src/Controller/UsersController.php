@@ -20,7 +20,8 @@ class UsersController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Groups', 'Departments']
+            'contain' => ['Groups', 'Departments'],
+            'limit' => 5
         ];
         $users = $this->paginate($this->Users);
 
@@ -38,6 +39,8 @@ class UsersController extends AppController
             $user = $this->Auth->identify();
             if ($user) {
                 $this->Auth->setUser($user);
+                if ($user['group_id'] == 2)
+                    return $this->redirect(['controller' => 'events','action' => 'index']);
                 return $this->redirect($this->Auth->redirectUrl());
             }
             $this->Flash->error(__('Your email or password was incorrect.'));

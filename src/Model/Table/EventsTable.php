@@ -9,7 +9,6 @@ use Cake\Validation\Validator;
 /**
  * Events Model
  *
- * @property \App\Model\Table\PhotosTable|\Cake\ORM\Association\BelongsTo $Photos
  * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\CommentsTable|\Cake\ORM\Association\HasMany $Comments
  * @property \App\Model\Table\EngagementsTable|\Cake\ORM\Association\HasMany $Engagements
@@ -44,10 +43,6 @@ class EventsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Photos', [
-            'foreignKey' => 'photo_id',
-            'joinType' => 'INNER'
-        ]);
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
@@ -112,6 +107,11 @@ class EventsTable extends Table
             ->requirePresence('status', 'create')
             ->allowEmptyString('status', false);
 
+        $validator
+            ->scalar('photo_path')
+            ->maxLength('photo_path', 15)
+            ->allowEmptyString('photo_path');
+
         return $validator;
     }
 
@@ -124,7 +124,6 @@ class EventsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['photo_id'], 'Photos'));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;

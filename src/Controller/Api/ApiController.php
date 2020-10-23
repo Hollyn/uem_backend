@@ -7,6 +7,7 @@ use Cake\Utility\Security;
 use Firebase\JWT\JWT;
 use Cake\Http\ServerRequest;
 use Cake\I18n\Time;
+use Cake\ORM\TableRegistry;
 
 class ApiController extends AppController
 {
@@ -16,7 +17,7 @@ class ApiController extends AppController
         parent::initialize();
         $this->loadModel('Users');
 
-        $this->Auth->allow(['login', 'add', 'index']);
+        $this->Auth->allow(['login', 'add', 'eventForMe']);
 
     }
 
@@ -71,6 +72,21 @@ class ApiController extends AppController
 
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
+    }
+
+
+    public function eventForMe($user_id)
+    {
+        $this->autoRender = false;
+        $events = TableRegistry::get('Events')->find()
+        ->where(
+            [
+                'user_id' => 2
+            ]
+        );
+
+        $this->set(compact('events'));
+        $this->set('_serialize', ['events']);
     }
 
 

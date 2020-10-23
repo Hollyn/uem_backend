@@ -41,8 +41,8 @@ class PhotosFixture extends TestFixture
                 'id' => 1,
                 'photo' => 'Lorem ipsum dolor sit amet',
                 'description' => 'Lorem ipsum dolor sit amet',
-                'created' => '2019-06-04 13:26:59',
-                'modified' => '2019-06-04 13:26:59'
+                'created' => '2019-09-22 16:39:41',
+                'modified' => '2019-09-22 16:39:41'
             ],
         ];
         parent::init();
