@@ -115,6 +115,15 @@ Router::scope('/', function (RouteBuilder $routes) {
         ]
     );
 
+    $routes->connect('/api/eventForMe/*',
+        [
+            'controller' => 'Api',
+            'action' => 'eventForMe',
+            'prefix' => 'api'
+        ]
+    )
+        ->setPass(['id']);
+
     $routes->fallbacks(DashedRoute::class);
 });
 

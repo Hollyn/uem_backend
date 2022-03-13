@@ -9,8 +9,6 @@ use Cake\Validation\Validator;
 /**
  * Photos Model
  *
- * @property \App\Model\Table\EventsTable|\Cake\ORM\Association\HasMany $Events
- *
  * @method \App\Model\Entity\Photo get($primaryKey, $options = [])
  * @method \App\Model\Entity\Photo newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Photo[] newEntities(array $data, array $options = [])
@@ -39,10 +37,6 @@ class PhotosTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
-
-        $this->hasMany('Events', [
-            'foreignKey' => 'photo_id'
-        ]);
     }
 
     /**

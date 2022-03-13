@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Engagements Controller
@@ -48,9 +49,16 @@ class EngagementsController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($user_id, $event_id)
     {
+
         $engagement = $this->Engagements->newEntity();
+        $engagement = $this->Engagements->patchEntity($engagement, ['event_id' => $event_id, 'user_id' => $user_id, 'engagement' => 1]);
+        if ($this->Engagements->save($engagement)) {
+            $this->Flash->success(__('The engagement has been saved.'));
+
+            return $this->redirect(['controller' => 'Events', 'action' => 'index']);
+        }
         if ($this->request->is('post')) {
             $engagement = $this->Engagements->patchEntity($engagement, $this->request->getData());
             if ($this->Engagements->save($engagement)) {
